@@ -1,0 +1,107 @@
+.about{
+    width: 100%;
+    background-color: black;
+    background-blend-mode: darken;
+}
+
+.heading{
+    color: white;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.para{
+    color: white;
+    margin: 10px;
+    width: 600px;
+}
+
+.contentText{
+    font-size: x-large;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.devContainers{
+    color: white;
+    text-align: center;
+    text-align: -webkit-center;
+}
+ h2{
+    border-bottom: 1px rgb(254, 85, 0) solid;
+    width: 5.5em;
+}
+
+.devContainers .containers{
+    margin-top: 25px;
+    width: 1000px;
+    height: 300px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-icon {
+    margin-left: 10px;
+    padding: .6rem;
+    color: #f86400;
+    border-radius: 4px;
+    font-size: 3rem;
+    transition:0.5s ease-in;
+}
+
+.devContainers .containers .dev1{
+    width: 270px;
+    color: white;
+    height: 210px;
+    background-color: #413c3c;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    transition:0.5s ease-in;
+}   
+
+.devContainers .containers .dev1:hover{
+    background-color:#f86400;
+    opacity: 10px;
+    color: white;
+}
+.dev1:hover .social-icon{
+    color:white;
+}
+
+.devContainers .containers .dev1 .devContent{
+    width: 100%;
+    height: 100%;
+}
+
+.devContainers .containers .dev1 .devContent .devImage{
+    width: 100%;
+    height: 120px;
+    margin-top: 10px;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+.devContainers .containers .dev1 .devContent .devName{
+    margin-top:10px;
+    font-weight:bold;
+    font-size:Large;
+}
+
+@media screen and (max-width:1000px){
+    .devContainers .containers{
+        height:500px;
+        flex-wrap:wrap;
+        width:auto;
+    }
+}
