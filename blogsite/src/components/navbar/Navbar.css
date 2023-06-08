@@ -88,8 +88,8 @@
         font-size: 1.8rem;
 
     }
+
 }
 .active {
     color: rgb(250, 121, 0);
-    /* Add any additional styles for the active link */
-  }
+}
