@@ -61,12 +61,13 @@ button{
   font-weight: 500;
   display: flex;
   border-radius: 4px;
+  transition:0.5s ease-in;
 }
 
 button:hover{
-  background-color: #47dcff;
-  border: 1px solid #47dcff;
-  color:#0d2154;
+  background-color: #9a9591;
+  border:#9a9591;
+  color:black;
 }
 
 @media screen and (max-width:940px){
