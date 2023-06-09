@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PicturesService {
     @Autowired
@@ -20,5 +22,8 @@ public class PicturesService {
                 .apply(new Update().push("pictures").value(picture))
                 .first();
         return picture;
+    }
+    public Optional<Pictures> getPicture(String pictureID){
+        return picturesRepository.findPicturesByPictureID(pictureID);
     }
 }

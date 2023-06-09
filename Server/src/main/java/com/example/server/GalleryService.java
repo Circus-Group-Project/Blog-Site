@@ -31,5 +31,13 @@ public class GalleryService{
 
         return galleryRepository.findById(gallery.getId());
     }
+    public Optional<Gallery> addPicture(String galleryID, String link){
+        picturesService.createPicture(link, galleryID);
+        return galleryRepository.findGalleryByGalleryID(galleryID);
+
+    }
+    public Optional<Gallery> getGallery(String galleryID){
+        return galleryRepository.findGalleryByGalleryID(galleryID);
+    }
 
 }
