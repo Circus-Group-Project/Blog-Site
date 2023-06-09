@@ -24,6 +24,7 @@ const Navbar = () => {
             <li><Link to={'/'} className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>
             <li><Link to={'/about'} className={location.pathname === '/about' ? 'active' : ''}>About</Link></li>
             <li><Link to={'/gallery'} className={location.pathname === '/gallery' ? 'active' : ''}>Gallery</Link></li>
+            <li><Link to={'/upload'} className={location.pathname === '/upload' ? 'active' : ''}>Upload</Link></li>
             <li><Link to={'/contact'} className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link></li>
             <Link to='/Login' className={location.pathname === '/login' ? 'active' : ''}>{isMobile ? <button> Sign In</button>:<BsPersonCircle className='icon'></BsPersonCircle>}</Link>
         </ul>
