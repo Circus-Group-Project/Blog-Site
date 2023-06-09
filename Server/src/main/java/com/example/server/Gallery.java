@@ -19,12 +19,15 @@ public class Gallery {
     @Id
     private ObjectId id;
     private String galleryID;
-    private String Description;
+    private String description;
+    private String tag;
     @DocumentReference()
     private List<Pictures> pictures;
 
 
-    public Gallery(String reviewBody) {
+    public Gallery(String description, String tag) {
         this.galleryID = UUID.randomUUID().toString();
+        this.description = description;
+        this.tag = tag;
     }
 }
