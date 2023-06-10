@@ -31,9 +31,9 @@ const Upload = () => {
                             <label>Select an option:</label>
                                 <select>
                                     <option value="">Select gallery tag</option>
-                                    <option value="option1">Hangouts</option>
-                                    <option value="option2">Birthdays</option>
-                                    <option value="option3">Other</option>
+                                    <option value="Hangouts">Hangouts</option>
+                                    <option value="Birthdays">Birthdays</option>
+                                    <option value="Other">Other</option>
                                 </select>
                         </div>
                         <div>
