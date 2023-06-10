@@ -10,6 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GalleryData {
+    String name;
     String description;
     String tag;
     List<String> pictures;

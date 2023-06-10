@@ -18,6 +18,7 @@ import java.util.UUID;
 public class Gallery {
     @Id
     private ObjectId id;
+    private String name;
     private String galleryID;
     private String description;
     private String tag;
@@ -25,7 +26,8 @@ public class Gallery {
     private List<Pictures> pictures;
 
 
-    public Gallery(String description, String tag) {
+    public Gallery(String name, String description, String tag) {
+        this.name = name;
         this.galleryID = UUID.randomUUID().toString();
         this.description = description;
         this.tag = tag;

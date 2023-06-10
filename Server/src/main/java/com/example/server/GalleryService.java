@@ -18,8 +18,8 @@ public class GalleryService{
     private MongoTemplate mongoTemplate;
     @Autowired
     PicturesService picturesService;
-    public Optional<Gallery> createGallery(String description, String tag, List<String> pictures) throws JsonProcessingException {
-        Gallery gallery = galleryRepository.insert(new Gallery(description,tag));
+    public Optional<Gallery> createGallery(String name,String description, String tag, List<String> pictures) throws JsonProcessingException {
+        Gallery gallery = galleryRepository.insert(new Gallery(name,description,tag));
 
         mongoTemplate.update(User.class)
                 .matching(Criteria.where("username").is("admin"))

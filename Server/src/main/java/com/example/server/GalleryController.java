@@ -14,7 +14,7 @@ public class GalleryController {
     private GalleryService galleryService;
     @PostMapping
     public ResponseEntity<Optional<Gallery>> createGallery(@RequestBody GalleryData payload) throws JsonProcessingException {
-        return new ResponseEntity<>(galleryService.createGallery(payload.getDescription(),payload.getTag(), payload.getPictures()), HttpStatus.OK);
+        return new ResponseEntity<>(galleryService.createGallery(payload.getName(),payload.getDescription(),payload.getTag(), payload.getPictures()), HttpStatus.OK);
     }
     @GetMapping("/{galID}")
     public ResponseEntity<Optional<Gallery>> getGallery(@PathVariable String galID){
