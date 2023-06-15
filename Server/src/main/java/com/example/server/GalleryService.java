@@ -36,6 +36,9 @@ public class GalleryService{
         return galleryRepository.findGalleryByGalleryID(galleryID);
 
     }
+    public List<Gallery> getAllGallery(){
+        return galleryRepository.findAll();
+    }
     public Optional<Gallery> getGallery(String galleryID){
         return galleryRepository.findGalleryByGalleryID(galleryID);
     }

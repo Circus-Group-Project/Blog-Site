@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -17,8 +19,12 @@ public class GalleryController {
         return new ResponseEntity<>(galleryService.createGallery(payload.getName(),payload.getDescription(),payload.getTag(), payload.getPictures()), HttpStatus.OK);
     }
     @GetMapping("/{galID}")
-    public ResponseEntity<Optional<Gallery>> getGallery(@PathVariable String galID){
+    public ResponseEntity<Optional<Gallery>> getGalleryById(@PathVariable String galID){
         return new ResponseEntity<>(galleryService.getGallery(galID),HttpStatus.OK);
+    }
+    @GetMapping
+    public ResponseEntity<List<Gallery>> getAllGallery(){
+        return new ResponseEntity<>(galleryService.getAllGallery(),HttpStatus.OK);
     }
     @PutMapping("/addPicture")
     public ResponseEntity<Optional<Gallery>> addPicture(@RequestBody AddPictureData payload){
