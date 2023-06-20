@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/gallery")
+@CrossOrigin(origins = "*")
 public class GalleryController {
     @Autowired
     private GalleryService galleryService;
