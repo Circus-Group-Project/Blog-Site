@@ -1,4 +1,4 @@
-.hero{
+.profile{
     width: 100%;
     height: 100vh;
     display: flex;
@@ -8,45 +8,75 @@
 
     background-blend-mode: darken;
 }
-.hero .container{
-    display: flex;
-    justify-content: center;
-}
-.hero .content{
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1rem;
+.profileContainer{
+    width: 100%;
 }
 
-.hero h1{
-    color: #f8f8f8;
-}
-.hero .blue{
-    color: var(--primary-color);
-}
-.hero .aboutBtn{
+.profileContainer .contents{
     display: flex;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-@media screen and (max-width:940px){
-    .hero .content{
-        margin-left: 0rem;
-        padding: 10px;
+.profileContainer .contents .profileIcon{
+    color: white;
+}
+
+.profileContainer .contents .profileIcon .icon{
+    height: 400px;
+    width: 400px;
+}
+
+.profileContainer .contents .profileData{
+    color: white;
+    background-color: rgb(35, 34, 34);
+    height: 400px;
+    width: 600px;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 400px;
+}
+
+.profileContainer .contents .profileData .icon{
+    height: 400px;
+    width: 400px;
+}
+
+.profileContainer .contents .profileData .welcome{
+    font-size: 3.2rem;
+    text-align: center;
+}
+
+.profileContainer .contents .profileData .welcome span{
+    font-weight: bold;
+}
+
+.profileContainer .contents .profileData .stats{
+    padding-top: 20px;
+    font-size: 1.2rem;
+}
+
+.profileContainer .contents .profileData .stats p{
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width:1000px){
+    .profile{
+        height: 800px;
     }
-    .hero .container{
-        text-align: center;
+    .profileContainer .contents {
+        height:500px;
+        flex-wrap:wrap;
+        width:auto;
     }
-
-}
-
-.heroContainer{
-    display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-.hero{
-    flex: 1;
+    .profileContainer .contents .profileIcon{
+        margin-bottom: 20px;
+        padding-top: 100px;
+    }
+    .profileContainer .contents .profileIcon .icon{
+        width: 200px;
+        height: 200px;
+    }
 }

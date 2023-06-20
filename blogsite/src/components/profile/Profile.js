@@ -1,16 +1,24 @@
 import React from 'react'
 import './Profile.css'
-
+import {BsFilePerson} from 'react-icons/bs'
 const Profile = () => {
   return (
-    <div className='hero'>
-        <div className='container'>
-            <div className='content'>
-                <h1 className='text'>WELCOME TO OUR BLOG <span className='site'>SITE</span></h1>
-                <div className='aboutBtn'>
-                  <button>About Us</button>
-                </div>
+    <div className='profile'>
+        {/* Profile Icon and a little stat about the user */}
+        <div className='profileContainer'>
+          {/* profile icon*/}
+          <div className='contents'>
+            <div className='profileIcon'>
+              <BsFilePerson className='icon'/>
             </div>
+            <div className='profileData'>
+              <p className='welcome'>Welcome <span>Admin</span>!</p>
+              <div className='stats'>
+                <p>Description: <span>You have upload permission</span></p>
+                <p>Number of Images Uploaded: <span>20</span></p>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
   )
