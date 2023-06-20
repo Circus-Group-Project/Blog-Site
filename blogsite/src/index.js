@@ -9,6 +9,7 @@ import Contact from './routes/ContactPage'
 import Gallery from './routes/GalleryPage'
 import Login from './routes/LoginPage'
 import Upload from './routes/UploadPage'
+import Profile from './routes/ProfilePage'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
       <Route path='/gallery' element={<Gallery/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/upload' element={<Upload/>}/>
+      <Route path='/profile' element={<Profile/>}/>
     </Routes>
   </BrowserRouter>
 );
