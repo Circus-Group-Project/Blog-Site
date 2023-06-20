@@ -1,7 +1,7 @@
 import React from 'react'
 import './Gallery.css'
 import {BsLink45Deg} from 'react-icons/bs'
-
+import {Link} from 'react-router-dom'
 import { useEffect,useState } from "react";
 import api from "../../api/axiosConfig";
 
@@ -28,7 +28,8 @@ const Gallery = () => {
             const firstImage = item.pictures[0].link.replace('https://drive.google.com/file/d/','https://drive.google.com/uc?id=');
             const mainImage = firstImage.replace('/view','')
             return (
-              <div className='dev1' key={index}>
+              <Link to={`/galleryDisplay/${item.galleryID}`} key={index}>
+              <div className='dev1'>
                 <div className='devContent'>
                   <div className='devImage'>
                     <div>
@@ -41,6 +42,7 @@ const Gallery = () => {
                   </div>
                 </div>
               </div>
+              </Link>
             );
           })}
         </div>
