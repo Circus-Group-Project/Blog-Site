@@ -40,7 +40,7 @@ const GalleryDisplay = () => {
                     <div className='img1Container'>
                       <div className='devImage'>
                           <div>
-                          <img src={mainImage} alt={picture.id.pictureID} style={{height: '100%', borderRadius:'10%'}}></img>
+                          <img src={mainImage} alt={picture.id.pictureID} style={{width: '190px', height: '100%', borderRadius:'10%'}}></img>
                           </div>
                       </div>
                       <div className='devName'>Picture {index+1}</div>

@@ -38,8 +38,3 @@ const Navbar = () => {
 
 export default Navbar
 
-//<li>Home</li>
-  //          <li>About</li>
-    //        <li>Gallery</li>
-      //      <li>Contact Us</li>
-        //    {isMobile ? <button> Sign In</button>:<BsPersonCircle className='icon'></BsPersonCircle>}

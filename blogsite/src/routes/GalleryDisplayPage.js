@@ -7,7 +7,7 @@ import GalleryDisplay from '../components/gallery/GalleryDisplay'
 const GalleryDisplayPage = () => {
   return (
     <>
-      <Navbar/>
+      <NavbarDisplay/>
       <GalleryDisplay/>
       <Footer/>
     </>

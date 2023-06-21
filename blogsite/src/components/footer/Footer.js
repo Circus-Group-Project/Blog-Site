@@ -23,9 +23,6 @@ const Footer = () => {
         <div className='col-container'>
             <form>
                 <h3> Connect with us </h3>
-                <div className='aboutBtn'>
-                    <button>Contact Us</button>
-                </div>
                 <div className='social-group'>
                     <FiInstagram className='social-icon'/>
                     <FiFacebook className='social-icon'/>
