@@ -1,0 +1,87 @@
+.galleryDisplay{
+    width: 100%;
+    padding-top: 100px;
+    background-color: black;
+    background-blend-mode: darken;
+    color: white;
+}
+
+.dataContainer{
+    color: white;
+    height: 100%;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.dataContainer .pictures{
+    height: 600px;
+    margin-top: 20px;
+}
+
+.dataContainer .pictures .containers{
+    height: 400px;
+    background-color: rgba(128, 128, 128, 0.26);
+    width: 700px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.dataContainer .pictures .containers::-webkit-scrollbar {
+    width:7px;
+}
+.dataContainer .pictures .containers::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius:5px;
+}
+.dataContainer .pictures .containers::-webkit-scrollbar-thumb {
+    border-radius:5px;
+    -webkit-box-shadow: inset 0 0 6px rgb(231, 96, 5); 
+}
+.dataContainer .pictures .containers .img1Container{
+    padding: 20px;
+    background-color: grey;
+    border-radius: 5px;
+    width: 200px;
+    transition: 0.5s ease-in;
+}
+.dataContainer .pictures .containers .img1Container:hover{
+    padding: 20px;
+    background-color: orange;
+    border-radius: 5px;
+}
+
+.contents p{
+    padding: 10px;
+}
+
+.devImage{
+    width: 100px;
+    height: 120px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.devName{
+    margin-top:10px;
+    font-weight:bold;
+    font-size:Large;
+}
+
+@media screen and (max-width:1000px){
+    .dataContainer .pictures .containers{
+        flex-wrap:wrap;
+        width:auto;
+        height: 100%;
+    }
+    .galleryDisplay{
+        height: auto;
+    }
+    .contents{
+        padding-bottom: 15px;
+    }
+}
