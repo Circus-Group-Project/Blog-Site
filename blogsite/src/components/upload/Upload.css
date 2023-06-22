@@ -33,14 +33,50 @@ h1{
     margin: 1rem;
 }
 
-.uploadContainer .form-container div {
+.uploadContainer .form-container .tex {
     display: flex;
     flex-direction: column;
+}
+
+.uploadContainer .form-container .imageLinks{
+    display: flex;
+    width: 100%;
+}
+
+.uploadContainer .form-container .imageLinks div{
+    width: 100%;
+}
+
+.uploadContainer .form-container .imageLinks input{
+    width: 100%;
 }
 
 .uploadContainer form label {
     margin: 2rem 0 .7rem 0;
     display: none;
+}
+
+.icon{
+    font-size: 20px;
+}
+
+.addButton{
+    margin-left: 10px;
+    align-items: center;
+    padding: 10px;
+}
+
+.linkHeader{
+    color: white;
+    width: 300px;
+}
+
+.linkList{
+    text-align: -webkit-center;
+}
+.linkList ul li{
+    padding: 10px;
+    font-size: x-large;
 }
 
 .uploadContainer form input, textarea, select {
