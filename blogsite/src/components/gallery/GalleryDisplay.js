@@ -27,6 +27,10 @@ const GalleryDisplay = () => {
           <h2>{data.name}</h2>
           <div className='contents'>
             <p><span>Tag</span>: {data.tag}</p>
+            <h2>Description</h2>
+            <div>
+              <p>{data.description}</p>
+            </div>
             <h2>Pictures</h2>
             <div className='pictures'>
               <div className='containers'>
