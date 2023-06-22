@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import './Upload.css';
-import { BsFillFilePlusFill } from 'react-icons/bs';
+import React, { useState } from "react";
+import "./Upload.css";
+import { BsFillFilePlusFill } from "react-icons/bs";
+import api from "../../api";
 
 const Upload = () => {
   const [imageLinks, setImageLinks] = useState([]);
-  const [newLink, setNewLink] = useState('');
-  const [galleryName, setGalleryName] = useState('');
-  const [galleryTag, setGalleryTag] = useState('');
-  const [description, setDescription] = useState('');
+  const [newLink, setNewLink] = useState("");
+  const [galleryName, setGalleryName] = useState("");
+  const [galleryTag, setGalleryTag] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleAddLink = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
@@ -16,29 +17,42 @@ const Upload = () => {
 
     if (linkPattern.test(newLink)) {
       setImageLinks((prevLinks) => [...prevLinks, newLink]);
-      setNewLink('');
+      setNewLink("");
     } else {
-      console.log('Invalid link input');
+      console.log("Invalid link input");
       // You can show an error message to the user or take any other appropriate action
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
     // Here you can access all the form data, such as galleryName, imageLinks, galleryTag, and description
     // You can perform any necessary actions, such as sending the data to a server or displaying it in the UI
-    console.log('Gallery Name:', galleryName);
+    /*console.log('Gallery Name:', galleryName);
     console.log('Image Links:', imageLinks);
     console.log('Gallery Tag:', galleryTag);
-    console.log('Description:', description);
+    console.log('Description:', description);*/
 
+    const requestData = {
+      name: galleryName,
+      tag: galleryTag,
+      description: description,
+      images: imageLinks,
+    };
+
+    try {
+      const response = await api.post("/api/v1/gallery", requestData);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
     // Reset the form fields
-    setGalleryName('');
+    setGalleryName("");
     setImageLinks([]);
-    setNewLink('');
-    setGalleryTag('');
-    setDescription('');
+    setNewLink("");
+    setGalleryTag("");
+    setDescription("");
   };
 
   return (
@@ -67,7 +81,11 @@ const Upload = () => {
                   onChange={(e) => setNewLink(e.target.value)}
                 />
               </div>
-              <button className="addButton" type="button" onClick={handleAddLink}>
+              <button
+                className="addButton"
+                type="button"
+                onClick={handleAddLink}
+              >
                 <BsFillFilePlusFill className="icon" />
               </button>
             </div>
@@ -96,16 +114,22 @@ const Upload = () => {
             <button type="submit">Upload</button>
           </form>
         </div>
-        <div className="linkList">
-          <h2 className='linkHeader'>Image Links</h2>
-          <ul>
-            {imageLinks.map((link, index) => (
-              <li key={index}>
-                <a href={link} target="_blank" rel="noopener noreferrer">{link}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {imageLinks.length > 0 ? (
+          <div className="linkList">
+            <h2 className="linkHeader">Image Links</h2>
+            <ul>
+              {imageLinks.map((link, index) => (
+                <li key={index}>
+                  <a href={link} target="_blank" rel="noopener noreferrer">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div className="linkList"></div>
+        )}
       </div>
       <div className="Notification"></div>
     </div>
