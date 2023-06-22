@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Upload.css";
 import { BsFillFilePlusFill } from "react-icons/bs";
-import api from "../../api";
+import api from "../../api/axiosConfig";
 
 const Upload = () => {
   const [imageLinks, setImageLinks] = useState([]);
@@ -38,7 +38,7 @@ const Upload = () => {
       name: galleryName,
       tag: galleryTag,
       description: description,
-      images: imageLinks,
+      pictures: imageLinks,
     };
 
     try {
@@ -111,7 +111,15 @@ const Upload = () => {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-            <button type="submit">Upload</button>
+            {imageLinks.length > 0 ? (
+              <div>
+                <button type="submit">Upload</button>
+              </div> ): (
+                <div>
+                  <p>Needs atleast 1 image</p>
+                </div>
+              )
+            }
           </form>
         </div>
         {imageLinks.length > 0 ? (
