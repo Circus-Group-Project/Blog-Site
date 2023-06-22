@@ -1,53 +1,74 @@
-import React, { useState } from 'react'
-import './Upload.css'
+import React, { useState } from 'react';
+import './Upload.css';
+import { BsFillFilePlusFill } from 'react-icons/bs';
+
 const Upload = () => {
-    const [link, setLink] = useState('');
-    //const  [selectedOption, SetSelectedOption] = useState('');
-    const handleLinkChange = (event) => {
-    const input = event.target.value;
+  const [imageLinks, setImageLinks] = useState([]);
+  const [newLink, setNewLink] = useState('');
 
-    // Regular expression to match a URL pattern
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-
-    if (input === '' || urlRegex.test(input)) {
-      setLink(input);
+  const handleAddLink = () => {
+    if (newLink) {
+      setImageLinks((prevLinks) => [...prevLinks, newLink]);
+      setNewLink('');
     }
   };
-    return (
-    <div className='uploadContainer'>
-      <div className="container">
-                <div className="form-container">
-                    <form>
-                        <h1>Upload</h1>
-                        <div>
-                            <label>Name</label>
-                            <input type="text" placeholder='Enter gallery name' required/>
-                        </div>
-                        <div>
-                            <label>link</label>
-                            <input type="text" value={link} placeholder='Enter gallery link' onChange={handleLinkChange} required/>
-                        </div>
-                        <div>
-                            <label>Select an option:</label>
-                                <select>
-                                    <option value="">Select gallery tag</option>
-                                    <option value="Hangouts">Hangouts</option>
-                                    <option value="Birthdays">Birthdays</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                        </div>
-                        <div>
-                            <label>Description</label>
-                            <textarea rows='10' placeholder='Enter the description for galleries'/>
-                        </div>
-                        <button>Upload</button>
-                    </form>
-                </div>
-        </div>
-        <div className='Notification'></div>
-    </div>
-  )
-}
 
-export default Upload
-//<option value="">Select gallery tag</option>
+  return (
+    <div className="uploadContainer">
+      <div className="container">
+        <div className="form-container">
+          <form>
+            <h1>Upload</h1>
+            <div className="tex">
+              <label>Name</label>
+              <input type="text" placeholder="Enter gallery name" required />
+            </div>
+            <div className="imageLinks">
+              <label>link</label>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Enter image link"
+                  value={newLink}
+                  onChange={(e) => setNewLink(e.target.value)}
+                  required
+                />
+              </div>
+              <button className="addButton" type="button" onClick={handleAddLink}>
+                <BsFillFilePlusFill className="icon" />
+              </button>
+            </div>
+            <div className="tex">
+              <label>Select an option:</label>
+              <select>
+                <option value="">Select gallery tag</option>
+                <option value="Hangouts">Hangouts</option>
+                <option value="Birthdays">Birthdays</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div className="tex">
+              <label>Description</label>
+              <textarea rows="10" placeholder="Enter the description for galleries" />
+            </div>
+            <button>Upload</button>
+          </form>
+        </div>
+        <div className="linkList">
+            <h2 className='linkHeader'>Image Links</h2>
+            <ul>
+              {imageLinks.map((link, index) => (
+                <li key={index}>
+                  <a href={link} target="_blank" rel="noopener noreferrer">{link}</a>
+                </li>
+
+              ))}
+            </ul>
+          </div>
+      </div>
+      <div className="Notification"></div>
+    </div>
+  );
+};
+
+export default Upload;

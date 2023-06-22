@@ -75,13 +75,13 @@ button{
   border-radius: 4px;
   transition:0.5s ease-in;
 }
-
+/* be aware that this will cause alot of changes
 button:hover{
   background-color: #9a9591;
   border:#9a9591;
   color:black;
 }
-
+*/
 @media screen and (max-width:940px){
   h1{
     font-size: 3rem;
