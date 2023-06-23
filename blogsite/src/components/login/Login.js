@@ -13,18 +13,22 @@ const Login = () => {
     console.log("Logged In");
     console.log(userName);
     console.log(password);
-
-    const response = await api.post("/api/v1/user/login", {
-      userName,
-      password,
-    });
-    console.log(response);
-    if (response.status === 200) {
-      navigate("/profile"); // Navigate to the profile page
-    } else if (response.status === 401) {
-      alert("Invalid Credentials");
-    } else if (response.status === 404) {
-      alert("User not found");
+    try {
+      const requestBody = {
+        username: userName,
+        password: password,
+      };
+      const response = await api.post("/api/v1/user/login", requestBody);
+      console.log(response);
+      if (response.status === 200) {
+        navigate("/profile"); // Navigate to the profile page
+      } else if (response.status === 401) {
+        alert("Invalid Credentials");
+      } else if (response.status === 404) {
+        alert("User not found");
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
