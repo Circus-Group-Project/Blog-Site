@@ -75,11 +75,35 @@
     font-size:Large;
 }
 
+.filterButtons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.btnDesn{
+    background-color: black;
+    border: none;
+    margin-right: 20px;
+    list-style-type: none;
+}
+
+.btnDesn:hover{
+    cursor: pointer;
+}
+
+.active{
+    color: rgb(250, 121, 0);
+    text-decoration:underline;
+}
+
 @media screen and (max-width:1000px){
     .galContainers .containers{
         flex-wrap:wrap;
         width:auto;
-        height: 700px;
+        height: 500px;
         overflow-y: scroll;
         background-color: rgba(128, 128, 128, 0.153);
     }

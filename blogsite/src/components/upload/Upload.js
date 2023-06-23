@@ -20,7 +20,6 @@ const Upload = () => {
       setNewLink("");
     } else {
       console.log("Invalid link input");
-      // You can show an error message to the user or take any other appropriate action
     }
   };
 
@@ -29,10 +28,6 @@ const Upload = () => {
 
     // Here you can access all the form data, such as galleryName, imageLinks, galleryTag, and description
     // You can perform any necessary actions, such as sending the data to a server or displaying it in the UI
-    /*console.log('Gallery Name:', galleryName);
-    console.log('Image Links:', imageLinks);
-    console.log('Gallery Tag:', galleryTag);
-    console.log('Description:', description);*/
 
     const requestData = {
       name: galleryName,
@@ -43,7 +38,7 @@ const Upload = () => {
 
     try {
       const response = await api.post("/api/v1/gallery", requestData);
-      console.log(response);
+      console.log(response)
     } catch (err) {
       console.log(err);
     }
