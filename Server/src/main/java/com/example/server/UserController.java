@@ -14,8 +14,8 @@ import java.util.Optional;
 public class UserController {
     @Autowired
     private UserService userService;
-    @GetMapping("/login")
-    public ResponseEntity<String> login(UserJson userData){
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody UserJson userData){
         Optional<User> user = userService.getUser(userData.getUsername());
         if(user.isPresent()){
             if(user.get().getPassword().equals(userData.getPassword())){
