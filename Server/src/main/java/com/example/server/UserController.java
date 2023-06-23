@@ -14,18 +14,18 @@ import java.util.Optional;
 public class UserController {
     @Autowired
     private UserService userService;
-    @GetMapping("/login/{username}/{password}")
-    public ResponseEntity<String> login(@PathVariable String username,@PathVariable String password){
-        Optional<User> user = userService.getUser(username);
+    @GetMapping("/login")
+    public ResponseEntity<String> login(UserJson userData){
+        Optional<User> user = userService.getUser(userData.getUsername());
         if(user.isPresent()){
-            if(user.get().getPassword().equals(password)){
-                return new ResponseEntity<String>("success", HttpStatus.OK);
+            if(user.get().getPassword().equals(userData.getPassword())){
+                return new ResponseEntity<>("success", HttpStatus.OK);
             }
             else{
-                return new ResponseEntity<String>("Wrong Password", HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<>("Wrong Password", HttpStatus.UNAUTHORIZED);
             }
         }
-        return new ResponseEntity<String>("User Not Found", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("User Not Found", HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/{username}")
