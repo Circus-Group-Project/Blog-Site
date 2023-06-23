@@ -12,8 +12,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userName);
-    console.log(password);
     try {
       const requestBody = {
         username: userName,

@@ -11,7 +11,6 @@ const GalleryDisplay = () => {
     const getGallery = async () => {
       try {
         const response = await api.get(`/api/v1/gallery/${id}`);
-        console.log(response.data)
         setData(response.data)
       } catch (err) {
         console.log(err);
@@ -37,8 +36,6 @@ const GalleryDisplay = () => {
               {data.pictures.map((picture, index) => {
                 const a = picture.link.replace('https://drive.google.com/file/d/', 'https://drive.google.com/uc?id=');
                 const mainImage = a.replace('/view', '');
-                console.log(a)
-                console.log(mainImage)
                 return (
                   <a href={mainImage} target="_blank" rel="noopener noreferrer" key={picture.pictureID}>
                     <div className='img1Container'>
