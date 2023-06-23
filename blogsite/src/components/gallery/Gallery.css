@@ -12,6 +12,10 @@
     text-align: -webkit-center;
 }
 
+.link1{
+    padding-bottom: 20px;
+}
+
 .galContainers .containers{
     margin-top: 25px;
     width: 1000px;
@@ -73,8 +77,13 @@
 
 @media screen and (max-width:1000px){
     .galContainers .containers{
-        height:500px;
         flex-wrap:wrap;
         width:auto;
+        height: 700px;
+        overflow-y: scroll;
+        background-color: rgba(128, 128, 128, 0.153);
+    }
+    .gallery{
+        height: auto;
     }
 }

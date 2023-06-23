@@ -31,7 +31,7 @@ const Gallery = () => {
             );
             const mainImage = firstImage.replace("/view", "");
             return (
-              <Link to={`/galleryDisplay/${item.galleryID}`} key={index}>
+              <Link className="link1" to={`/galleryDisplay/${item.galleryID}`} key={index}>
                 <div className="dev1">
                   <div className="devContent">
                     <div className="devImage">
