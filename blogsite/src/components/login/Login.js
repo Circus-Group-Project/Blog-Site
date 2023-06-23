@@ -20,11 +20,11 @@ const Login = () => {
       };
       const response = await api.post("/api/v1/user/login", requestBody);
       console.log(response);
-      if (response.status === 200) {
+      if (response.data === "success") {
         navigate("/profile"); // Navigate to the profile page
-      } else if (response.status === 401) {
+      } else if (response.data === "Wrong Password") {
         alert("Invalid Credentials");
-      } else if (response.status === 404) {
+      } else if (response.data === "User Not Found") {
         alert("User not found");
       }
     } catch (err) {

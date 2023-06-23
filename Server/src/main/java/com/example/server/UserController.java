@@ -22,10 +22,10 @@ public class UserController {
                 return new ResponseEntity<>("success", HttpStatus.OK);
             }
             else{
-                return new ResponseEntity<>("Wrong Password", HttpStatus.UNAUTHORIZED);
+                return new ResponseEntity<>("Wrong Password", HttpStatus.OK);
             }
         }
-        return new ResponseEntity<>("User Not Found", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("User Not Found", HttpStatus.OK);
     }
 
     @GetMapping("/{username}")
