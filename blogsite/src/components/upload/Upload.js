@@ -38,6 +38,7 @@ const Upload = () => {
 
     try {
       const response = await api.post("/api/v1/gallery", requestData);
+      console.log(response)
     } catch (err) {
       console.log(err);
     }
