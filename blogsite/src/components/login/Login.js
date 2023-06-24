@@ -7,6 +7,7 @@ import api from "../../api/axiosConfig";
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // New state for error message
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -23,9 +24,9 @@ const Login = () => {
         await login();
         navigate("/profile"); // Navigate here
       } else if (response.data === "Wrong Password") {
-        alert("Invalid Credentials");
+        setErrorMessage("Invalid credentials");
       } else if (response.data === "User Not Found") {
-        alert("User not found");
+        setErrorMessage("User not found");
       }
     } catch (err) {
       console.log(err);
@@ -64,6 +65,7 @@ const Login = () => {
             </div>
             <div className="submitBtn">
               <button type="submit">Submit</button>
+              {errorMessage && <p className="error">{errorMessage}</p>}
             </div>
           </form>
         </div>

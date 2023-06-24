@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Upload.css";
 import { BsFillFilePlusFill } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
 import api from "../../api/axiosConfig";
 
 const Upload = () => {
@@ -9,9 +10,10 @@ const Upload = () => {
   const [galleryName, setGalleryName] = useState("");
   const [galleryTag, setGalleryTag] = useState("");
   const [description, setDescription] = useState("");
+  const [showDialog, setShowDialog] = useState(false);
 
   const handleAddLink = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault();
 
     const linkPattern = /^(http(s)?:\/\/)?[\w.-]+\.[a-zA-Z]{2,20}(\/.*)?$/;
 
@@ -24,10 +26,7 @@ const Upload = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-
-    // Here you can access all the form data, such as galleryName, imageLinks, galleryTag, and description
-    // You can perform any necessary actions, such as sending the data to a server or displaying it in the UI
+    e.preventDefault();
 
     const requestData = {
       name: galleryName,
@@ -38,16 +37,21 @@ const Upload = () => {
 
     try {
       const response = await api.post("/api/v1/gallery", requestData);
-      console.log(response)
+      console.log(response);
+      setShowDialog(true);
     } catch (err) {
       console.log(err);
     }
-    // Reset the form fields
+
     setGalleryName("");
     setImageLinks([]);
     setNewLink("");
     setGalleryTag("");
     setDescription("");
+  };
+
+  const handleCloseDialog = () => {
+    setShowDialog(false);
   };
 
   return (
@@ -76,11 +80,7 @@ const Upload = () => {
                   onChange={(e) => setNewLink(e.target.value)}
                 />
               </div>
-              <button
-                className="addButton"
-                type="button"
-                onClick={handleAddLink}
-              >
+              <button className="addButton" type="button" onClick={handleAddLink}>
                 <BsFillFilePlusFill className="icon" />
               </button>
             </div>
@@ -109,15 +109,15 @@ const Upload = () => {
             {imageLinks.length > 0 ? (
               <div>
                 <button type="submit">Upload</button>
-              </div> ): (
-                <div>
-                  <p>Needs atleast 1 image</p>
-                </div>
-              )
-            }
+              </div>
+            ) : (
+              <div>
+                <p>Needs at least 1 image</p>
+              </div>
+            )}
           </form>
         </div>
-        {imageLinks.length > 0 ? (
+        {imageLinks.length > 0 && (
           <div className="linkList">
             <h2 className="linkHeader">Image Links</h2>
             <ul>
@@ -130,11 +130,14 @@ const Upload = () => {
               ))}
             </ul>
           </div>
-        ) : (
-          <div className="linkList"></div>
         )}
       </div>
-      <div className="Notification"></div>
+      {showDialog && (
+        <div className="dialog">
+          <p>Form submitted successfully!</p>
+          <IoMdClose className="close-icon" onClick={handleCloseDialog} />
+        </div>
+      )}
     </div>
   );
 };
