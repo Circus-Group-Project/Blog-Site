@@ -40,6 +40,7 @@ const Gallery = () => {
           <li className={`btnDesn ${activeFilter === "all" ? "active" : ""}`} onClick={() => handleFilter("all")}>All</li>
           <li className={`btnDesn ${activeFilter === "Birthdays" ? "active" : ""}`} onClick={() => handleFilter("Birthdays")}>Birthdays</li>
           <li className={`btnDesn ${activeFilter === "Hangouts" ? "active" : ""}`} onClick={() => handleFilter("Hangouts")}>Hangouts</li>
+          <li className={`btnDesn ${activeFilter === "Other" ? "active" : ""}`} onClick={() => handleFilter("Other")}>Other</li>
         </div>
         <div className="containers">
           {filteredData.map((item, index) => {
