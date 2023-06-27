@@ -14,6 +14,7 @@ const Gallery = () => {
       try {
         const response = await api.get("/api/v1/gallery");
         setData(response.data);
+        console.log(response.data)
         setFilteredData(response.data); // Set initial filtered data to all items
       } catch (err) {
         console.log(err);

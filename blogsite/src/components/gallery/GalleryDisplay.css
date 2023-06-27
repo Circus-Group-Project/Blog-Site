@@ -72,6 +72,98 @@
     font-size:Large;
 }
 
+.iconsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    margin-bottom: 10px;
+  }
+
+.editIcon, .deleteIcon{
+    font-size:2em;
+    margin-right: 20px;
+}
+.editIcon:hover,.deleteIcon:hover{
+    color: var(--primary-color);
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .popupContent,.popupContent2 {
+    background-color: #000000;
+    padding: 20px;
+    width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popupContent h2 {
+    margin-bottom: 10px;
+  }
+  
+  .popupContent label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .popupContent input,
+  .popupContent select,
+  .popupContent textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .popupContent .modalButtons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .popupContent button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .popupContent button:hover {
+    background-color: #0056b3;
+  }
+  
+.popupContent2{
+    text-align: -webkit-center;
+}
+
+.deleteH2{
+    border-bottom: none;
+    width: 100%;
+}
+
+.modalButtons2{
+    display: flex;
+    justify-content: center;
+}
+
+.modalButtons2 button{
+    margin-right: 20px;
+}
+
 @media screen and (max-width:1000px){
     .dataContainer .pictures .containers{
         flex-wrap:wrap;
@@ -83,5 +175,16 @@
     }
     .contents{
         padding-bottom: 15px;
+    }
+    .iconsContainer{
+        width: auto;
+    }
+    .popupContent{
+        width: 100%;
+        overflow-y: auto;
+        max-height: calc(100vh - 100px);
+    }
+    .popup{
+        overflow: hidden;
     }
 }
