@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { RiEdit2Line, RiDeleteBin2Line } from 'react-icons/ri';
+import { useAuth } from '../../AuthContext';
 import api from "../../api/axiosConfig";
 import './GalleryDisplay.css';
 
@@ -10,6 +11,10 @@ const GalleryDisplay = () => {
   const [editingPicture, setEditingPicture] = useState(null);
   const [isDeleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
   const [pictureToDelete, setPictureToDelete] = useState(null);
+  const [isLinkDialogOpen, setLinkDialogOpen] = useState(false);
+  const [newImageLink, setNewImageLink] = useState('');
+  const [imageLinks, setImageLinks] = useState([]);
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     const getGallery = async () => {
@@ -48,13 +53,38 @@ const GalleryDisplay = () => {
     setEditingPicture(null);
   };
 
+  const handleOpenLink = (link) => {
+    setLinkDialogOpen(true);
+  };
+
+  const handleCloseLinkDialog = () => {
+    setLinkDialogOpen(false);
+  };
+
+  const handleAddLink = () => {
+    if (newImageLink.trim() === '') {
+      alert('Link cannot be empty');
+      return;
+    }
+    setImageLinks((prevLinks) => [...prevLinks, newImageLink]);
+    setNewImageLink('');
+  };
+
+  useEffect(() => {
+    console.log('Image links:', imageLinks);
+  }, [imageLinks]);
+
   return (
     <div className='galleryDisplay'>
       {data && data.pictures && (
         <div className='dataContainer'>
           <div className='iconsContainer'>
-            <RiEdit2Line className='editIcon' onClick={() => handleEdit(data)} />
-            <RiDeleteBin2Line className='deleteIcon' onClick={() => handleDelete(data.id)} />
+            {isLoggedIn && (
+              <RiEdit2Line className='editIcon' onClick={() => handleEdit(data)} />
+            )}
+            {isLoggedIn && (
+              <RiDeleteBin2Line className='deleteIcon' onClick={() => handleDelete(data.id)} />
+            )}
           </div>
           <h2>{data.name}</h2>
           <div className='contents'>
@@ -70,7 +100,7 @@ const GalleryDisplay = () => {
                   const a = picture.link.replace('https://drive.google.com/file/d/', 'https://drive.google.com/uc?id=');
                   const mainImage = a.replace('/view', '');
                   return (
-                    <a href={mainImage} target="_blank" rel="noopener noreferrer" key={picture.pictureID}>
+                    <div key={picture.pictureID}>
                       <div className='img1Container'>
                         <div className='devImage'>
                           <div>
@@ -79,10 +109,10 @@ const GalleryDisplay = () => {
                         </div>
                         <div className='devName'>Picture {index + 1}</div>
                         <div>
-                          <RiDeleteBin2Line className='deleteIcon' onClick={() => handleDelete(picture.pictureID)} />
+                        {isLoggedIn && (<RiDeleteBin2Line className='deleteIcon' onClick={() => handleDelete(picture.pictureID)} />)}
                         </div>
                       </div>
-                    </a>
+                    </div>
                   );
                 })}
               </div>
@@ -94,7 +124,7 @@ const GalleryDisplay = () => {
       {editingPicture && (
         <div className='popup'>
           <div className='popupContent'>
-            <h2>Edit Picture</h2>
+            <h2>Edit Gallery</h2>
             <div>
               <label>Name:</label>
               <input
@@ -123,11 +153,12 @@ const GalleryDisplay = () => {
             </div>
             <div>
               <label>Link:</label>
-              <input
-                type='text'
-                value={editingPicture.link}
-                onChange={(e) => setEditingPicture({ ...editingPicture, link: e.target.value })}
-              />
+              <button onClick={() => handleOpenLink(editingPicture.link)}>Edit Link</button>
+            </div>
+            <div className='LinkStorage'>
+              {imageLinks.map((link, index) => (
+                <p key={index}>{link}</p>
+              ))}
             </div>
             <div className='modalButtons'>
               <button onClick={handleModalSubmit}>Update</button>
@@ -140,10 +171,30 @@ const GalleryDisplay = () => {
       {isDeleteConfirmationOpen && (
         <div className='popup'>
           <div className='popupContent2'>
-            <h2 className='deleteH2'> Are you sure you want to delete?</h2>
+            <h2 className='deleteH2'>Are you sure you want to delete?</h2>
             <div className='modalButtons2'>
               <button onClick={handleConfirmDelete}>Yes</button>
               <button onClick={handleCancelDelete}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isLinkDialogOpen && (
+        <div className='popup'>
+          <div className='popupContent'>
+            <h2>Add Image Link</h2>
+            <div>
+              <label>Link:</label>
+              <input
+                type='text'
+                value={newImageLink}
+                onChange={(e) => setNewImageLink(e.target.value)}
+              />
+            </div>
+            <div className='modalButtons'>
+              <button onClick={handleAddLink}>Add</button>
+              <button onClick={handleCloseLinkDialog}>Close</button>
             </div>
           </div>
         </div>
