@@ -17,6 +17,6 @@ https://www.figma.com/file/0mBIrbWPn5qEPepzCnpfNI/BlogSite?type=design&t=WINcWlc
 </p>
 
 <h1>Developers</h1>
-- [Nirmith DAlmeida]([https://github.com/exampleuser](https://github.com/NirmithDev))
-- [Abhai R Gill]([https://github.com/exampleuser](https://github.com/abhai28))
-- [Soorya Balaji]([https://github.com/exampleuser](https://github.com/Soorya-03)https://github.com/Soorya-03)
+<a href="https://github.com/NirmithDev">Nirmith DAlmeida</a></li> || 
+<a href="https://github.com/abhai28">Abhai R Gill</a></li> || 
+<a href="https://github.com/Soorya-03">Soorya Balaji</a></li> 
