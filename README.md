@@ -16,9 +16,7 @@ https://www.figma.com/file/0mBIrbWPn5qEPepzCnpfNI/BlogSite?type=design&t=WINcWlc
 <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JS" width="80" height="40"/>
 </p>
 
-<p align="center">
 <h1>Developers</h1>
 - [Nirmith DAlmeida]([https://github.com/exampleuser](https://github.com/NirmithDev))
 - [Abhai R Gill]([https://github.com/exampleuser](https://github.com/abhai28))
 - [Soorya Balaji]([https://github.com/exampleuser](https://github.com/Soorya-03)https://github.com/Soorya-03)
-</p>
