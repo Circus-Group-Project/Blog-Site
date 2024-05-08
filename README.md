@@ -1,6 +1,6 @@
 
 <p align="center">
-<H1>TheBrosBlogSite</H1>
+<H1>Blog Site</H1>
 This blog site is made with bros for our bros
 </p>
 
